@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 
 const usePagination = (data, itemsPerPage = 4) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,23 +17,25 @@ const usePagination = (data, itemsPerPage = 4) => {
     return data.slice(startIndex, endIndex);
   }, [data, currentPage, itemsPerPage]);
 
-  const nextPage = () => {
-    setCurrentPage((prev) =>
-      prev < totalPages ? prev + 1 : prev
-    );
-  };
+const nextPage = useCallback(() => {
+  setCurrentPage((prev) =>
+    prev < totalPages ? prev + 1 : prev
+  );
+}, [totalPages]);
 
-  const prevPage = () => {
-    setCurrentPage((prev) =>
-      prev > 1 ? prev - 1 : prev
-    );
-  };
+const prevPage = useCallback(() => {
+  setCurrentPage((prev) =>
+    prev > 1 ? prev - 1 : prev
+  );
+}, []);
 
-  const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
+const goToPage = useCallback((page) => {
+  if (page >= 1 && page <= totalPages) {
+    setCurrentPage(page);
+  }
+}, [totalPages]);
+
+
 
   // 🌟 Added a helper to automatically handle page rollback if items are deleted
   const adjustPageOnDelete = (currentSubsetLength) => {
