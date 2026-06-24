@@ -1,0 +1,32 @@
+headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+         accept: "application/json",
+       },
+
+
+Individual:
+     --url 'https://api.tmdb.org/3/movie?{movie_id}' \ 
+
+Example:
+     --url "https://api.tmdb.org/3/movie/1339713" \
+     
+Now Playing:
+     --url 'https://api.tmdb.org/3/movie/now_playing?page=1' \
+
+Popular:
+     --url 'https://api.tmdb.org/3/movie/popular?language=en-US&page=1' \
+
+Top Rated:
+     --url 'https://api.tmdb.org/3/movie/top_rated?language=en-US&page=1' \
+    
+Upcoming:
+     --url 'https://api.tmdb.org/3/movie/upcoming?language=en-US&page=1' \
+
+Search:
+     --url 'https://api.tmdb.org/3/search/movie?query={movie_name}' \
+     
+language search:
+     --url 'https://api.tmdb.org/3/discover/movie?with_original_language=te&page=1'
+     
+Webseries:
+     --url 'https://api.tmdb.org/3/discover/tv?page=1' \
