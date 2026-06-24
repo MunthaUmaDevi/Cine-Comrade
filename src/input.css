@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* 1. Import the default Flowbite theme variables */
+@import "flowbite/src/themes/default";
+
+/* 2. Register the Flowbite plugin */
+@plugin "flowbite/plugin";
+
+/* 3. Tell Tailwind to scan Flowbite's code for utility classes */
+@source "../node_modules/flowbite";
