@@ -34,7 +34,7 @@ const MovieList = ({
   useEffect(() => {
     goToPage(1);
     window.scrollTo(0, 0);
-  }, [apiPath, language, genre]); // Watches your 3 filter variables
+  }, [apiPath, language, genre,goToPage]); // Watches your 3 filter variables
 
   if (loading) {
     return (
