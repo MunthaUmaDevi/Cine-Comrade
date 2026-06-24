@@ -6,7 +6,7 @@ import Card from "../components/Card";
 const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
-  const pageTitle = useTitle(`Search results for ${query}`);
+  useTitle(`Search results for ${query}`);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
